@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <iframe id="myFrame" src="Static Webpage.html"></iframe>
+    <script>
+        // Example A: Trying to fetch raw data from a local file (CORS Error!)
+        fetch('some_data.json')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error("Browser blocked this!", error));
+        // Example B: Trying to snoop inside an iframe's DOM (Your exact screenshot error!)
+        let frame = document.getElementById('myFrame');
+        
+        frame.onload = function() {
+            // The browser panics right here because you are trying to READ the other file
+            let frameContent = frame.contentWindow.document.body.innerHTML;
+            console.log(frameContent);
+        };
+    </script>
+</body>
+</html>
