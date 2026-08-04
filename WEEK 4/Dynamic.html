@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather DashBoard</title>
+</head>
+<body id="body">
+    <form id="weatherForm">
+    <input type="text" id="city" placeholder="Enter City">
+    <button type="submit">Search</button>
+    <button type="button" id="getLocation">Get Current Location</button>
+    <button type="button" id="getTemp">Get Current temprature</button>
+    </form>
+    <h2 id="SelectedCity"></h2>
+    <h2 id="temperature"></h2>
+</body>
+<script>
+    document.getElementById("weatherForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent page refresh
+
+    const city = document.getElementById("city").value;
+    document.getElementById("SelectedCity").innerText = city;
+    // getWeather(city);
+});
+
+document.getElementById("getLocation").addEventListener("click", function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async function(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            // getWeatherByCoordinates(lat, lon);
+            try{
+                const response = await fetch(
+                    `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+                );
+                const data = await response.json();
+                const name = document.getElementById("SelectedCity");
+                name.innerText = data.address.city || data.address.town || data.address.village || "Unknown Location";
+            }
+            catch (error) {
+                console.error("Error fetching location data:", error);
+            }
+        });
+    }
+});
+
+document.getElementById("getTemp").addEventListener("click", function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async function(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            try {
+                const response = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=280668dd93f8ac56029ab0ecf13967b1`
+                );
+                const data = await response.json();
+                // Process temperature data
+                console.log("Data:",data)
+                document.getElementById("temperature").innerText = `Temperature: ${data.main.temp - 273.15} °C`;
+                if (data.main.temp - 273.15 > 30) {
+                    document.getElementById("body").style.backgroundColor = "red";
+                }
+                else{
+                    document.getElementById("body").style.backgroundColor = "blue";
+                }
+            } catch (error) {
+                console.error("Error fetching temperature data:", error);
+            }
+        });
+    }
+});
+</script>
+</html>
