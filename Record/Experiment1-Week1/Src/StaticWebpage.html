@@ -1,0 +1,128 @@
+<!-- STATIC WEBPAGE -->
+
+<!-- AIM: To create a static webpage using HTML without any external files. -->
+
+<!-- Description: This HTML file demonstrates a simple static webpage that includes various HTML elements such as headings, paragraphs, lists, images, tables, and forms. It is designed to be self-contained without relying on external CSS or JavaScript files. -->
+
+<!-- PROGRAM -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First HTML Static Page</title>
+</head>
+<body>
+
+    <!-- Main Header -->
+    <header>
+        <h1>Welcome to My Static Website</h1>
+        <p>This entire page is built using <strong>pure HTML</strong> without external files.</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <h3>Navigation Links</h3>
+        <ul>
+            <li><a href="#about">About This Page</a></li>
+            <li><a href="#features">Feature Matrix</a></li>
+            <li><a href="#contact">Get In Touch</a></li>
+            <li><a href="https://wikipedia.org" target="_blank">Visit Wikipedia (External Link)</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About This Page</h2>
+        <p>HTML (HyperText Markup Language) forms the skeleton of every website on the internet. Even without CSS for styling or JavaScript for logic, standard browser defaults render HTML elements cleanly and accessibly.</p>
+        
+        <h3>Key HTML Elements Used Here:</h3>
+        <ul>
+            <li><strong>Headings:</strong> Organized structurally from <code>&lt;h1&gt;</code> down to <code>&lt;h3&gt;</code>.</li>
+            <li><strong>Lists:</strong> Ordered (numbered) and unordered (bulleted) lists.</li>
+            <li><strong>Media:</strong> Embedded images with alternative descriptive text.</li>
+        </ul>
+
+        <!-- Sample Image Placeholder -->
+        <figure>
+            <img src="https://picsum.photos" alt="A beautiful random placeholder image from Picsum" width="600" height="300">
+            <figcaption>Figure 1: A placeholder image loaded directly via URL.</figcaption>
+        </figure>
+    </section>
+
+    <hr>
+
+    <!-- Feature Table Section -->
+    <section id="features">
+        <h2>HTML Component Table</h2>
+        <p>Tables are great for displaying structured data sets.</p>
+        
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Tag Name</th>
+                    <th>Primary Function</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>&lt;a&gt;</code></td>
+                    <td>Creates hyperlinks to other URLs or page sections.</td>
+                    <td>Inline</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;table&gt;</code></td>
+                    <td>Organizes data into rows and columns.</td>
+                    <td>Block</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;form&gt;</code></td>
+                    <td>Collects input data from users.</td>
+                    <td>Block</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <!-- Contact Form Section -->
+    <section id="contact">
+        <h2>Contact Form</h2>
+        <p>Forms let users input data, though a backend server or service is required to process it.</p>
+        
+        <form action="#" method="POST">
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="John Doe" required><br><br>
+
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required><br><br>
+
+            <label for="subject">Reason for Contact:</label><br>
+            <select id="subject" name="subject">
+                <option value="general">General Inquiry</option>
+                <option value="feedback">Feedback</option>
+                <option value="support">Technical Support</option>
+            </select><br><br>
+
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" rows="5" cols="40" placeholder="Type your message here..." required></textarea><br><br>
+
+            <input type="submit" value="Submit Form">
+            <input type="reset" value="Clear Form">
+        </form>
+    </section>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 My Static HTML Page. Built completely from scratch.</p>
+    </footer>
+
+</body>
+</html>
