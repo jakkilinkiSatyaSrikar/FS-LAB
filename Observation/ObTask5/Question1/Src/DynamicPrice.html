@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input id="name" placeholder="Product" required>
+<input id="qty" type="number" placeholder="Quantity" required>
+<input id="price" type="number" placeholder="Price" required>
+<button onclick="calc()">Calculate</button>
+
+<p id="total"></p>
+
+<script>
+function calc() {
+  let n = document.getElementById("name").value;
+  let q = document.getElementById("qty").value;
+  let p = document.getElementById("price").value;
+
+  if (!n){document.getElementById("total").innerHTML = "Enter product name"
+    return;
+  };
+  if(!q) {document.getElementById("total").innerHTML = "Enter quantity"
+    return;
+  };
+  if (!p) {document.getElementById("total").innerHTML = "Enter price";
+    return;
+  }
+  if(typeof n === 'number'){
+    document.getElementById("total").innerHTML = "Enter valid product name";
+    return;
+  }
+  if (q < 0 || p < 0) {
+    document.getElementById("total").innerHTML = "Enter valid quantity and price";
+    return;
+  }
+  document.getElementById("total").innerHTML = n + " Total: ₹" + q * p;
+}
+</script>
+
+</body>
+</html>

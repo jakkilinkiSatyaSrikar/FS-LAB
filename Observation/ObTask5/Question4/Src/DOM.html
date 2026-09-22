@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="title">Hello World</h2>
+
+<input id="color" placeholder="Enter color">
+<button onclick="change()">Submit</button>
+<p id="msg"></p>
+
+<script>
+function change() {
+  let c = document.getElementById("color").value.trim();
+  let x = document.getElementById("title");
+  let test = new Option().style;
+
+  if (!c || !CSS.supports("color", c))
+    document.getElementById("msg").innerHTML = "Enter a valid color!";
+  else {
+    x.style.color = c;
+    x.innerHTML = "Color Changed!";
+    document.getElementById("msg").innerHTML = "";
+  }
+}
+</script>
+
+</body>
+</html>
