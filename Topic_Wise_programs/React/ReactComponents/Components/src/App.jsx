@@ -20,5 +20,12 @@ function Comp3(){
   )
 }
 
+class Greeting extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+
+
 export default Comp1;
-export {Comp2, Comp3};
+export {Comp2, Comp3, Greeting};
